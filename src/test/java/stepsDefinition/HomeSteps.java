@@ -1,14 +1,17 @@
 package stepsDefinition;
 
 import io.cucumber.java.en.Given;
+import pages.HomePage;
 
 
-public class HomePage {
+public class HomeSteps {
 
-  //  pages.HomePage
+    HomePage hp = new HomePage();
 
     @Given("User navigate to login page")
-    public void userNavigateToLoginPage() {
+    public void userNavigateToLoginPage() throws InterruptedException {
+        hp.click_toggle_menu();
         System.out.println("runner berhasil jalan");
+        hp.click_signIn_link();
     }
 }
