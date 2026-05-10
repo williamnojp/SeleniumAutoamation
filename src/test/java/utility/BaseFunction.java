@@ -16,14 +16,34 @@ public class BaseFunction extends BrowserDriver {
     public void clickButton(String xpath){
         driver.findElement(By.xpath(xpath)).click();
     }
+    public void clickBbuttonbyID(String id){
+        driver.findElement(By.id(id)).click();
+
+    }
     public void inputTextbyID(String id, String text){
         driver.findElement(By.id(id)).sendKeys(text);
     }
 
-    public void  waitUntilElementVisible(String locator) {
+    public void  waitUntilElementVisiblebyXpath(String locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
         assertTrue(element.isDisplayed());
     }
+    public void  waitUntilElementVisiblebyID(String locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
+        assertTrue(element.isDisplayed());
+    }
+    public void  waitUntilElementVisiblebyClass(String locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(locator)));
+        assertTrue(element.isDisplayed());
+    }
+
+    public void VerifyWebPageLink(String url){
+        String urlPage = driver.getCurrentUrl();
+        assertTrue(urlPage.toLowerCase().contains(url));
+    }
+
 
 }

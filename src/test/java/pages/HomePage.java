@@ -1,29 +1,16 @@
 package pages;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import utility.BrowserDriver;
+import utility.BaseFunction;
 
-public class HomePage extends BrowserDriver {
+public class HomePage {
 
-    static String toggleMenuXPATH = "//*[@id=\"menuToggle\"]/input";
-    static String signInPortalXPATH = "//*[@id=\"menu\"]/a[2]";
-    static String signInPortalLinkText = "Sign In Portal";
+    BaseFunction bs = new BaseFunction();
 
+    String shoppingCartClass = "shopping_cart_link";
 
-    public void click_toggle_menu()  throws  InterruptedException{
-       // WebDriverManager.chromedriver().setup();
-        //driver = new ChromeDriver();
-        //driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
-        Thread.sleep(1000);
-        driver.findElement (By.xpath(toggleMenuXPATH)).click();
-    }
-
-    public void click_signIn_link() throws InterruptedException{
-        Thread.sleep(1000);
-        driver.findElement (By.xpath(signInPortalXPATH)).click();
+    public void verifyUserInHomePage(){
+        bs.VerifyWebPageLink("inventory");
+        bs.waitUntilElementVisiblebyClass(shoppingCartClass);
 
     }
 

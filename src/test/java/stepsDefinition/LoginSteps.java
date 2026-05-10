@@ -1,5 +1,6 @@
 package stepsDefinition;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import pages.LoginPage;
 
@@ -9,8 +10,18 @@ public class LoginSteps {
 
     @When("User successfully enter the login detail")
     public void userSuccessfullyEnterTheLoginDetail() {
-        lp.inputUserName();
-        lp.inputPassword();
+
+    }
+
+    @When("User input valid login credential")
+    public void userInputValidLoginCredential() {
+        lp.inputUserName(true);
+        lp.inputPassword(true);
         lp.clickLoginButton();
+    }
+
+    @Given("User navigate to login page")
+    public void userNavigateToLoginPage() {
+        lp.VerifyUsernameAndPasswordFieldVisibility();
     }
 }

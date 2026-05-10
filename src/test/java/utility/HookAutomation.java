@@ -10,7 +10,7 @@ public class HookAutomation extends BrowserDriver {
     public void setupAutomation(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
+        driver.get("https://www.saucedemo.com/");
 
     }
     @After
