@@ -18,6 +18,8 @@ public class LoginPage{
 
     public String lockedUserNameText = "locked_out_user";
 
+    public String errorMessageContainerXPATH = "//*[@id=\"login_button_container\"]/div/form/div[3]";
+
 
     public void inputUserName(boolean valid){
         String inputText = "";
@@ -50,6 +52,10 @@ public class LoginPage{
     public void VerifyUsernameAndPasswordFieldVisibility(){
         bs.waitUntilElementVisiblebyID(usernameFieldID);
         bs.waitUntilElementVisiblebyID(passwordFieldID);
+    }
+
+    public void VerifyErrorMessageVisibility(){
+        bs.waitUntilElementVisiblebyXpath(errorMessageContainerXPATH);
     }
 
 }
