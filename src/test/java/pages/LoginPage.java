@@ -8,17 +8,22 @@ import utility.BrowserDriver;
 public class LoginPage{
    BaseFunction bs = new BaseFunction();
 
+   //
     public String usernameFieldID = "user-name";
     public String passwordFieldID = "password";
     public String loginButtonID = "login-button";
 
+    //
+    public String errorMessageContainerXPATH = "//*[@id=\"login_button_container\"]" +
+            "/div/form/div[3]";
+
+    public String errorMessageContainerCLASS = "error-message-container error";
+    //
     public String validUsernameText = "standard_user";
     public String validPasswordText = "secret_sauce";
     public String invalidPasswordText = "secretsauce";
-
     public String lockedUserNameText = "locked_out_user";
 
-    public String errorMessageContainerXPATH = "//*[@id=\"login_button_container\"]/div/form/div[3]";
 
 
     public void inputUserName(boolean valid){
@@ -44,6 +49,10 @@ public class LoginPage{
         bs.inputTextbyID(passwordFieldID,inputText);
     }
 
+    public void inputLockedUserName(){
+        bs.inputTextbyID(usernameFieldID,lockedUserNameText);
+    }
+
     public void clickLoginButton(){
        bs.clickBbuttonbyID(loginButtonID);
 
@@ -58,4 +67,7 @@ public class LoginPage{
         bs.waitUntilElementVisiblebyXpath(errorMessageContainerXPATH);
     }
 
+    public void VerifyErrorContainerVisibility(){
+        bs.waitUntilElementVisiblebyClass(errorMessageContainerCLASS);
+    }
 }

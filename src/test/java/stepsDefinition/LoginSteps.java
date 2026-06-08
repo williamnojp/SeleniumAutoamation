@@ -37,4 +37,20 @@ public class LoginSteps {
     public void verifyUserIsAbleToSeeErrorMessage() {
         lp.VerifyErrorMessageVisibility();
     }
+
+    @When("User input locked login credential")
+    public void userInputLockedLoginCredential() {
+        lp.inputLockedUserName();
+        lp.inputPassword(true);
+    }
+
+    @Then("Verify user is able to see user locked error message")
+    public void verifyUserIsAbleToSeeUserLockedErrorMessage() {
+        lp.VerifyErrorMessageVisibility();
+    }
+
+    @When("User click login button at login page")
+    public void userClickLoginButtonAtLoginPage() {
+        lp.clickLoginButton();
+    }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,5 +46,15 @@ public class BaseFunction extends BrowserDriver {
         assertTrue(urlPage.toLowerCase().contains(url));
     }
 
+
+    public void SelectSort(String elementXpath, String sortSelection){
+        WebElement dropdownElement = driver.findElement(By.xpath(elementXpath));
+        Select selection = new Select(dropdownElement);
+        selection.selectByValue(sortSelection);
+    }
+
+    public void Waitfortime(int time) throws InterruptedException {
+       Thread.sleep(time * 1000L);
+    }
 
 }
