@@ -17,4 +17,22 @@ public class ProductPageSteps {
     public void userSelectSortProductsByNameAZ() throws InterruptedException {
         pp.selectProductSortingbyName(true);
     }
+
+    @When("User select sort products by name Z-A")
+    public void userSelectSortProductsByNameZA()throws InterruptedException {
+        pp.selectProductSortingbyName(false);
+
+    }
+
+    @When("User select sort products by prize LoHi")
+    public void userSelectSortProductsByPrizeLoHi()throws InterruptedException {
+        pp.selectProductSortingbyPrice(true);
+
+    }
+
+    @When("User select sort products by price Hilo")
+    public void userSelectSortProductsByPriceHilo() throws InterruptedException {
+        pp.selectProductSortingbyPrice(false);
+
+    }
 }
